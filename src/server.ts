@@ -2,6 +2,7 @@ import { createYoga } from "graphql-yoga";
 import { createServer } from "http";
 import { schema } from "./schema";
 import { indexerProcess } from "@/indexer";
+import { env } from "process";
 
 const yoga = createYoga({
   graphqlEndpoint: "/",
@@ -15,9 +16,9 @@ const yoga = createYoga({
 
 const server = createServer(yoga);
 
-server.listen(4000, () => {
+server.listen(env.PORT, () => {
   console.log(`\
-🚀 Server ready at: http://127.0.0.1:4000
+🚀 Server ready at: http://127.0.0.1:${env.PORT}/
 ⭐️ See sample queries: http://pris.ly/e/ts/graphql#using-the-graphql-api
   `);
 });
