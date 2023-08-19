@@ -7,4 +7,4 @@ import { printSchema } from "graphql";
 
 export const schema = builder.toSchema({});
 
-writeFileSync(resolve(__dirname, "../../schema.graphql"), printSchema(schema));
+writeFileSync(resolve(process.cwd(), "schema.graphql"), printSchema(schema));
